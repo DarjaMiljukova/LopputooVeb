@@ -1,0 +1,276 @@
+td {
+    padding: 10px;
+    margin-left: 0;
+    text-align: left;
+}
+h1 {
+    top: 10px;
+    position: absolute;
+    left: 860px;
+}
+table{
+    top:150px;
+    background-color: whitesmoke;
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px ;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    max-width: 1870px;
+    margin-right: 20px;
+    background-color: #232323;
+}
+
+form {
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #67797B;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+}
+
+li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #67797B;
+    color: white;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    color: white;
+
+}
+
+.modal-content {
+    background-color: #3c343d;
+    margin: 10% auto;
+    padding: 20px;
+    text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,
+    0px 0px 20px #b393d3;
+    width: 400px;
+    text-align: center;
+    z-index: 9999;
+}
+
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}
+td {
+    text-align: center;
+}
+
+th{
+    text-align: center;
+}
+
+#verti {
+    width: 250px;
+    height: 220px;
+    position: fixed;
+    left: -250px;
+    top: 120px;
+    background-color: #1C1C1C;
+    padding-top: 60px;
+    margin: 1% auto;
+    transition: 0.3s;
+}
+
+#verti a {
+    padding: 15px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fdfdfe;
+    text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,
+    0px 0px 20px #b393d3;
+    display: block;
+    transition: 0.3s;
+    text-align: center;
+}
+
+#verti a:hover {
+    background-color: #3b3c3c;
+}
+#content {
+    margin: 0;
+    padding: 15px;
+}
+
+* {
+    box-sizing: border-box;
+}
+.image-box {
+    position: absolute;
+    width: 600px;
+    margin: 50px auto 0;
+    z-index: 1;
+}
+.image-box .border {
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    border: 2px solid white;
+    z-index: 1;
+}
+.image-box img {
+    display: block;
+    position: relative;
+    width: 600px;
+    height: 442px;
+}
+.image-box .image-content {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 60%;
+    padding: 20px;
+    z-index: 2;
+    background: linear-gradient(to bottom,rgba(18,26,63,0.3),rgba(18,26,63,0.9));
+}
+.image-box .image-header {
+    font-size: 35px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(255,255,255,0.4);
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: normal;
+}
+.image-box p {
+    color: rgba(255,255,255,0.9);
+    font-size: 25px;
+    margin-top: 20px;
+    line-height: 24px;
+}
+.image-box{
+    left: 300px;
+    top: 200px;
+}
+
+* {
+    box-sizing: border-box;
+}
+.image-box2 {
+    position: absolute;
+    width: 600px;
+    margin: 50px auto 0;
+}
+.image-box2 .border {
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    border: 2px solid white;
+    z-index: 1;
+}
+.image-box2 img {
+    display: block;
+    position: relative;
+    width: 600px;
+    height: 442px;
+}
+.image-box2 .image-content {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 60%;
+    padding: 20px;
+    z-index: 2;
+    background: linear-gradient(to bottom,rgba(18,26,63,0.3),rgba(18,26,63,0.9));
+}
+.image-box2 .image-header {
+    font-size: 35px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(255,255,255,0.4);
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: normal;
+}
+.image-box2 p {
+    color: rgba(255,255,255,0.9);
+    font-size: 25px;
+    margin-top: 20px;
+    line-height: 24px;
+}
+.image-box2{
+    left: 1000px;
+    top: 200px;
+}
+@import url('https://fonts.googleapis.com/css?family=Rubik+One&subset=latin,cyrillic');
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.gradient-text {
+    font-family: 'Rubik One', sans-serif;
+    font-size: 80px;
+    text-transform: uppercase;
+    background: linear-gradient(45deg, #faee1c, #f3558e, #22d1ee);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientAnimation 5s ease infinite;
+    color: #a7ff83;
+    display: table;
+    margin: 20px auto;
+    position: absolute; /* Add this for positioning */
+    left: 650px;
+}
