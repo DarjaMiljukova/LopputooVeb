@@ -26,12 +26,13 @@
     }
     ?>
 </header>
+    //menüü
 <div id="content">
     <div id="header">
         <span style="font-size:80px;cursor:pointer;color: #fdfdfe; text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3, 0px 0px 20px #b393d3; user-select: none" onclick="toggleNav()">&#x2261; </span>
     </div>
 </div>
-
+    //reklaamiüksused
 <div class="image-box" style="user-select: none">
     <div class="border"></div>
     <img src="images/party1.jpg" alt="Pidu">
@@ -48,7 +49,7 @@
         <p style="user-select: none">Kas te ei ole oma sõpru või perekonda ammu näinud? Registreeru peole ja tule kokku!</p>
     </div>
 </div>
-
+    //menüü skript
 <script>
 
     function toggleNav() {
