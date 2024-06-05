@@ -1,5 +1,6 @@
+<?php if (isset($_GET['code'])) {die(highlight_file(__File__, 1)); }?>
 <?php
-require_once 'db_config.php';
+require_once 'conf.php';
 global $conn;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

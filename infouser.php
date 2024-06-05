@@ -1,13 +1,19 @@
+<?php if (isset($_GET['code'])) {die(highlight_file(__File__, 1)); }?>
 <?php
+// Sessiooni alustamine
 session_start();
-require_once 'db_config.php';
+// Konfiguratsioonifaili kaasamine
+require_once 'conf.php';
 
 global $conn;
+
+// Kontrollitakse, kas kasutaja on sisse logitud ja kas ta on administraator
 if (!isset($_SESSION['userId']) || !$_SESSION['isAdmin']) {
     header("Location: index.php");
     exit();
 }
 
+// Funktsioon kasutaja kustutamiseks
 function deleteUser($conn, $userId) {
     $deleteUserSql = "DELETE FROM kasutajad WHERE Id=?";
     $stmt = $conn->prepare($deleteUserSql);
@@ -15,6 +21,7 @@ function deleteUser($conn, $userId) {
     return $stmt->execute();
 }
 
+// Funktsioon kasutaja andmete muutmiseks
 function updateUser($conn, $userId, $newFirstName, $newLastName, $newEmail, $newPassword) {
     $updateUserSql = "UPDATE kasutajad SET Eesnimi=?, Perenimi=?, Email=?, Parool=? WHERE Id=?";
     $stmt = $conn->prepare($updateUserSql);
@@ -22,12 +29,13 @@ function updateUser($conn, $userId, $newFirstName, $newLastName, $newEmail, $new
     return $stmt->execute();
 }
 
-
+// Kui on saadetud vormi andmed kasutaja kustutamiseks
 if (isset($_POST['delete_user'])) {
     $userId = $_POST['delete_user'];
     header("Location: infouser.php");
 }
 
+// Kui on saadetud vormi andmed kasutaja muutmiseks
 if (isset($_POST['edit_user'])) {
     $userId = $_POST['user_id'];
     $newFirstName = $_POST['new_first_name'];
@@ -37,6 +45,7 @@ if (isset($_POST['edit_user'])) {
     header("Location: infouser.php");
 }
 
+// Kasutajate andmete pärimine andmebaasist
 $sql = "SELECT * FROM kasutajad";
 $result = $conn->query($sql);
 ?>
@@ -75,6 +84,7 @@ $result = $conn->query($sql);
             <th>Parool</th>
             <th>Tegevused</th>
         </tr>
+        <!-- Kasutajate andmete kuvamine -->
         <?php while ($row = $result->fetch_assoc()): ?>
             <tr>
                 <td><?= htmlspecialchars($row['Eesnimi']); ?></td>
@@ -82,19 +92,19 @@ $result = $conn->query($sql);
                 <td><?= htmlspecialchars($row['Email']); ?></td>
                 <td><?= htmlspecialchars($row['Parool']); ?></td>
                 <td>
+                    <!-- Vorm kasutaja kustutamiseks -->
                     <form method="post" style="display:inline-block;">
                         <input type="hidden" name="delete_user" value="<?= $row['Id']; ?>">
                         <button type="submit">Kustutamine kasutaja</button>
                     </form>
+                    <!-- Nupu vajutamisel avaneb redigeerimisaken -->
                     <button type="button" onclick="openEditModal('<?= $row['Id']; ?>', '<?= htmlspecialchars($row['Eesnimi']); ?>', '<?= htmlspecialchars($row['Perenimi']); ?>', '<?= htmlspecialchars($row['Email']); ?>', '<?= htmlspecialchars($row['Parool']); ?>')">Muudamine kasutajad info</button>
                 </td>
             </tr>
-
         <?php endwhile; ?>
     </table>
 
-
-
+    <!-- Muutmise aken -->
     <div id="editModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('editModal')">&times;</span>
@@ -110,6 +120,7 @@ $result = $conn->query($sql);
         </div>
     </div>
 
+    <!-- Lisamise aken -->
     <div id="addModal" class="modal">
         <div id="lisam" class="modal-content">
             <span class="close" onclick="closeModal('addModal')">&times;</span>
@@ -125,6 +136,7 @@ $result = $conn->query($sql);
     </div>
 </div>
 <script>
+    // Funktsioon redigeerimisakna avamiseks ja andmete täitmiseks
     function openEditModal(userId, firstName, lastName, email, password) {
         document.getElementById('editUserId').value = userId;
         document.getElementById('editNewFirstName').value = firstName;
@@ -134,14 +146,17 @@ $result = $conn->query($sql);
         document.getElementById('editModal').style.display = "block";
     }
 
+    // Funktsioon lisamisakna avamiseks
     function openAddModal() {
         document.getElementById('addModal').style.display = "block";
     }
 
+    // Funktsioon akna sulgemiseks
     function closeModal(modalId) {
         document.getElementById(modalId).style.display = "none";
     }
 
+    // Akna sulgemine, kui klikitakse väljaspool modal akent
     window.onclick = function(event) {
         if (event.target.className === 'modal') {
             event.target.style.display = "none";

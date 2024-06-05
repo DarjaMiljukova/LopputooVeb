@@ -1,3 +1,4 @@
+<?php if (isset($_GET['code'])) {die(highlight_file(__File__, 1)); }?>
 <?php
 session_start();
 

@@ -1,8 +1,8 @@
+<?php if (isset($_GET['code'])) {die(highlight_file(__File__, 1)); }?>
 <?php
 session_start();
-require_once 'db_config.php';
+require_once 'conf.php';
 global $conn;
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = isset($_POST['email']) ? $_POST['email'] : '';
     $password = isset($_POST['pass']) ? $_POST['pass'] : '';

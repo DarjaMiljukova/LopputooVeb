@@ -3,5 +3,5 @@ $kasutaja='darja';
 $serverinimi='localhost';
 $parool='';
 $andmebaas='projekt';
-$yhendus=new mysqli($serverinimi,$kasutaja,$parool,$andmebaas);
-$yhendus->set_charset('UTF8');
+$conn=new mysqli($serverinimi, $kasutaja, $parool, $andmebaas);
+?>
