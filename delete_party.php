@@ -12,9 +12,9 @@ if (isset($_POST['party_id'])) {
     $partyId = $_POST['party_id'];
     $deletePartySql = "DELETE FROM pidu WHERE Id=$partyId";
     if ($conn->query($deletePartySql) === TRUE) {
-        echo "Вечеринка успешно удалена.";
+        echo "Pidu on edukalt kustutatud.";
     } else {
-        echo "Ошибка: " . $conn->error;
+        echo "Viga: " . $conn->error;
     }
 } else {
     header("HTTP/1.1 400 Bad Request");
